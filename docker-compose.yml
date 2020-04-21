@@ -1,0 +1,28 @@
+version: "3.8"
+
+x-custom:
+  gcp:
+    - &gcp_project_id "test"
+
+services:
+  emulators:
+    build: "./"
+    environment:
+      DATASTORE_PROJECT_ID: *gcp_project_id
+      DATASTORE_LISTEN_ADDRESS: 0.0.0.0:${DATASTORE_PORT:-5051}
+      FIRESTORE_PROJECT_ID: *gcp_project_id
+      FIRESTORE_LISTEN_ADDRESS: 0.0.0.0:${FIRESTORE_PORT:-5052}
+      PUBSUB_PROJECT_ID: *gcp_project_id
+      PUBSUB_LISTEN_ADDRESS: 0.0.0.0:${PUBSUB_PORT:-5053}
+      SERVICES: ${SERVICES-}
+      GOOGLE_CLOUD_GUI_PORT: ${GOOGLE_CLOUD_GUI_PORT:-5054}
+    volumes:
+      - "${DATASTORE_DIR:-./src/datastore/.data}:/gcplocal/datastore/.data"
+      - "${PUBSUB_DIR:-./src/pubsub/.data}:/gcplocal/pubsub/.data"
+    ports:
+      - "${DATASTORE_PORT:-5051}:${DATASTORE_PORT:-5051}"
+      - "${FIRESTORE_PORT:-5052}:${FIRESTOREE_PORT:-5052}"
+      - "${PUBSUB_PORT:-5053}:${PUBSUB_PORT:-5053}"
+      - "${GOOGLE_CLOUD_GUI_PORT:-5054}:${GOOGLE_CLOUD_GUI_PORT:-5054}"
+      - "9001:9001"
+      
