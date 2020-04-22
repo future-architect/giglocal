@@ -5,7 +5,7 @@
 
 ## Overview
 
-GCP 用のエミュレータは公式のもの(https://cloud.google.com/sdk/gcloud/reference/beta/emulators)や 3rd party 製のものなどいくつか存在するが, 各アプリケーションごとに独立している.これらを一元的に管理して使いやすいような環境を, Docker コンテナ上で再現できるように提供します.
+GCP 用のエミュレータは公式のもの(https://cloud.google.com/sdk/gcloud/reference/beta/emulators)や 3rd party 製のものなどいくつか存在するが、各アプリケーションごとに独立している。これらを一元的に管理して使いやすいような環境を、Docker コンテナ上で再現できるように提供します。
 
 現在サポートしているアプリケーション：
 
@@ -22,12 +22,12 @@ GCP 用のエミュレータは公式のもの(https://cloud.google.com/sdk/gclo
 
 ## QuickStart
 
-本リポジトリを clone して以下のコマンドで docker コンテナを立ち上げます.
+本リポジトリを clone して以下のコマンドで docker コンテナを立ち上げます。
 ```bash
 docker-compose up
 ```
 
-コンテナの立ち上げ後は以下のポートを通じて各エミュレータに接続することができます.
+コンテナの立ち上げ後は以下のポートを通じて各エミュレータに接続することができます。
 
 |Emulator  | Default port          | Service Name |SERVICE    |
 |----------|-----------------------|--------------|-----------|
@@ -36,7 +36,7 @@ docker-compose up
 |Pub/Sub   | http://localhost:5053 | pubsub       | PUBSUB    |
 
 
-環境変数で `<SERVICE>_EMULATOR_HOST` を指定することで gcloud の向き先をエミュレータにすることができます．
+環境変数で `<SERVICE>_EMULATOR_HOST` を指定することで gcloud の向き先をエミュレータにすることができます。
 
 ```bash
 export DATASTORE_EMULATOR_HOST=localhost:5051
@@ -44,7 +44,7 @@ export FIRESTORE_EMULATOR_HOST=localhost:5052
 export PUBSUB_EMULATOR_HOST=localhost:5053
 ```
 
-詳細は以下を参照ください.
+詳細は以下を参照ください。
 
 - datastore : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/datastore
 - firestore : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/firestore
@@ -53,26 +53,26 @@ export PUBSUB_EMULATOR_HOST=localhost:5053
 
 ## Configurations
 
-環境変数から以下のような設定をすることができる.\
-以下の`<SERVICE>`は上記の表を参照ください.
+環境変数から以下のような設定をすることができる。\
+以下の`<SERVICE>`は上記の表を参照ください。
 
-環境変数は以下のように設定できる.
+環境変数は以下のように設定できる。
 
   ```bash
   export <ENVIRONMENT_VARIABLE>=value
   ```
 
-* `SERVICES`: カンマ区切りでサービス名を指定することで，起動するエミュレータを指定できる．\
-指定しなかった場合全てのエミュレータが起動される．
+* `SERVICES`: カンマ区切りでサービス名を指定することで，起動するエミュレータを指定できる。\
+指定しなかった場合全てのエミュレータが起動される。
   > 例: `SERVICES="datastore,pubsub"` -> datastore, pubsub が起動し，firestore は起動しない
-* `<SERVICE>_PORT`: 各エミュレータを起動する際に割り当てるポート番号を指定できる．\
-指定しなかった場合，default port が割り当てられる．
-* `<SERVICE>_DIR`:  各エミュレータのローカルデータをマウントするディレクトリを指定できる．\
+* `<SERVICE>_PORT`: 各エミュレータを起動する際に割り当てるポート番号を指定できる。\
+指定しなかった場合，default port が割り当てられる。
+* `<SERVICE>_DIR`:  各エミュレータのローカルデータをマウントするディレクトリを指定できる。\
 指定しなかった場合デフォルト値 (`./src/<service name>/.data`) が指定される\
-この設定は v0.1.0 現在 Datastore, Pub/Sub のみ指定ができる.
-* `<SERVICE>_PROJECT_ID`: Google Cloudリソースとやり取りするためのプロジェクトIDを指定できる.\
+この設定は v0.1.0 現在 Datastore、Pub/Sub のみ指定ができる。
+* `GCP_PROJECT_ID`: Google Cloudリソースとやり取りするためのプロジェクトIDを指定できる。\
 指定しなかった場合デフォルト値 (`test`) が指定される\
-これを変更することで個々のプロジェクトIDを更新できる.
+これを変更することでプロジェクトIDを更新できる。
 
 
 ## Change Log

@@ -50,7 +50,7 @@ export PUBSUB_EMULATOR_HOST=localhost:5053
 more information
 - datastore : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/datastore
 - firestore : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/firestore
-- pubsub : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/pubsub 
+- pubsub : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/pubsub
 
 
 ## Configurations
@@ -67,7 +67,7 @@ The environment variables can be set as follows.
   > Example value: `datastore,pubsub` to start datastore and pubsub.
 * `<SERVICE>_PORT`: Port number to bind a specific service (defaults to service ports above).
 * `<SERVICE>_DIR`:  The host directory to be mounted on the emulator data directory (default ./src/-ServiceName-/.data). This setting is only available for Datastore and Pub/Sub.
-* `<SERVICE>_PROJECT_ID`: Project identification information for interacting with Google Cloud resources (By default, the id is "test"). By changing this, you can update the project ID individually.
+* `GCP_PROJECT_ID`: Project identification information for interacting with Google Cloud resources (By default, the id is "test"). By changing this, you can update the project ID.
 
 ## License
 This version of giglocal is released under the Apache License, Version 2.0 (see [LICENSE](https://github.com/future-architect/giglocal/blob/master/LICENSE)).
