@@ -69,4 +69,4 @@ export PUBSUB_EMULATOR_HOST=localhost:5053
 * v0.1.0: Initial release
 
 ## License
-This version of giglocal is released under the Apache License, Version 2.0 (see [LICENSE](https://github.com/pj-cancan/giglocal/blob/master/LICENSE)).
+This version of giglocal is released under the Apache License, Version 2.0 (see [LICENSE](https://github.com/future-architect/giglocal/blob/master/LICENSE)).
