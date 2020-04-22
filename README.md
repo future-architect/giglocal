@@ -55,13 +55,19 @@ more information
 
 ## Configurations
 
-You can pass the following environment variables to giglocal
+You can pass the following environment variables to giglocal. Refer to the table above for the <SERVICE> below.
 
-* `SERVICES`: Comma-separated list of service names you want to invoke. If you do not set this variable, all emulators will be started. see above for service name.\
+The environment variables can be set as follows.
+
+  ```bash
+  export <ENVIRONMENT_VARIABLE>=value
+  ```
+
+* `SERVICES`: Comma-separated list of service names you want to invoke. If you do not set this variable, all emulators will be started. see above for service name.
   > Example value: `datastore,pubsub` to start datastore and pubsub.
 * `<SERVICE>_PORT`: Port number to bind a specific service (defaults to service ports above).
 * `<SERVICE>_DIR`:  The host directory to be mounted on the emulator data directory (default ./src/-ServiceName-/.data). This setting is only available for Datastore and Pub/Sub.
-
+* `<SERVICE>_PROJECT_ID`: Project identification information for interacting with Google Cloud resources (By default, the id is "test"). By changing this, you can update the project ID individually.
 
 ## License
 This version of giglocal is released under the Apache License, Version 2.0 (see [LICENSE](https://github.com/future-architect/giglocal/blob/master/LICENSE)).

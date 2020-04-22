@@ -2,7 +2,7 @@ version: "3.8"
 
 x-custom:
   gcp:
-    - &gcp_project_id "test"
+    - &gcp_project_id ${GCP_PROJECT_ID:-"test"}
 
 services:
   emulators:
@@ -25,4 +25,3 @@ services:
       - "${PUBSUB_PORT:-5053}:${PUBSUB_PORT:-5053}"
       - "${GOOGLE_CLOUD_GUI_PORT:-5054}:${GOOGLE_CLOUD_GUI_PORT:-5054}"
       - "9001:9001"
-      
