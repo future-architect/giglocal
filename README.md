@@ -1,6 +1,6 @@
-# gcplocal - A partly functional local GCP
+# giglocal - A partly functional local GCP
 
-*gcplocal* provides an easy-to-use and integrated GCP testing environment.
+*giglocal* provides an easy-to-use and integrated GCP testing environment.
 
 * [日本語](README_JP.md)
 
@@ -8,7 +8,7 @@
 
 Several emulators are provided for GCP applications(by [officially](https://cloud.google.com/sdk/gcloud/reference/beta/emulators) or 3rd party). But they are independent.
 
-Therefore, gcplocal provides these environments at once.
+Therefore, giglocal provides these environments at once.
 
 We currently support the following emulators of the application.
 
@@ -55,7 +55,7 @@ more information
 
 ## Configurations
 
-You can pass the following environment variables to gcplocal
+You can pass the following environment variables to giglocal
 
 * `SERVICES`: Comma-separated list of service names you want to invoke. If you do not set this variable, all emulators will be started. see above for service name.\
   > Example value: `datastore,pubsub` to start datastore and pubsub.
@@ -64,4 +64,4 @@ You can pass the following environment variables to gcplocal
 
 
 ## License
-This version of gcplocal is released under the Apache License, Version 2.0 (see [LICENSE](https://github.com/pj-cancan/gcplocal/blob/master/LICENSE)).
+This version of giglocal is released under the Apache License, Version 2.0 (see [LICENSE](https://github.com/future-architect/giglocal/blob/master/LICENSE)).
