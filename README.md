@@ -13,6 +13,7 @@ Therefore, giglocal provides these environments at once.
 We currently support the following emulators of the application.
 
 * **Datastore**
+  * **Google Cloud GUI**
 * **Firestore**
 * **Pub/Sub**
 
@@ -37,6 +38,7 @@ After the container starts, you can use emulators through the ports just below.
 |Datastore | http://localhost:5051 | datastore | DATASTORE |
 |Firestore | http://localhost:5052 | firestore | FIRESTORE |
 |Pub/Sub   | http://localhost:5053 | pubsub | PUBSUB |
+|Google Cloud GUI   | http://localhost:5054 | google-cloud-gui | Google Cloud GUI |
 
 
 And set environment variables `<SERVICE>_EMULATOR_HOST`, You can connect emulators.
@@ -52,6 +54,22 @@ more information
 - firestore : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/firestore
 - pubsub : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/pubsub 
 
+### [Google Cloud GUI](https://github.com/GabiAxel/google-cloud-gui)
+Google Cloud GUI is a GUI for Google Cloud Datastore.
+
+This can available at http://localhost:5054 (default).
+
+![](images/home.png)
+
+Click the top left "+Projects" and add your project id and the emulator host.
+
+![](images/input-project-id.png)
+
+You can view your Datastore's entities.
+
+![](images/gui.png)
+
+![](images/entity.png)
 
 ## Configurations
 
@@ -59,6 +77,8 @@ You can pass the following environment variables to giglocal
 
 * `SERVICES`: Comma-separated list of service names you want to invoke. If you do not set this variable, all emulators will be started. see above for service name.\
   > Example value: `datastore,pubsub` to start datastore and pubsub.
+
+  (To start google-cloud-gui , you must set both `datastore` and `google-cloud-gui`.)
 * `<SERVICE>_PORT`: Port number to bind a specific service (defaults to service ports above).
 * `<SERVICE>_DIR`:  The host directory to be mounted on the emulator data directory (default ./src/-ServiceName-/.data). This setting is only available for Datastore and Pub/Sub.
 

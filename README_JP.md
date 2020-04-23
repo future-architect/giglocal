@@ -30,11 +30,12 @@ docker-compose up
 
 コンテナの立ち上げ後は以下のポートを通じて各エミュレータに接続することができます。
 
-|Emulator         | Default port          | Service Name |SERVICE    |
-|-----------------|-----------------------|--------------|-----------|
-|Datastore        | http://localhost:5051 | datastore    | DATASTORE |
-|Firestore        | http://localhost:5052 | firestore    | FIRESTORE |
-|Pub/Sub          | http://localhost:5053 | pubsub       | PUBSUB    |
+|Emulator         | Default port          | Service Name      |SERVICE            |
+|-----------------|-----------------------|-------------------|-------------------|
+|Datastore        | http://localhost:5051 | datastore         | DATASTORE         |
+|Firestore        | http://localhost:5052 | firestore         | FIRESTORE         |
+|Pub/Sub          | http://localhost:5053 | pubsub            | PUBSUB            |
+|Google Cloud GUI | http://localhost:5054 | google-cloud-gui  | Google Cloud GUI  |
 
 
 環境変数で `<SERVICE>_EMULATOR_HOST` を指定することで gcloud の向き先をエミュレータにすることができます．
