@@ -10,6 +10,7 @@ GCP 用のエミュレータは公式のもの(https://cloud.google.com/sdk/gclo
 現在サポートしているアプリケーション：
 
 * **Datastore** 
+  * **Google Cloud GUI**
 * **Firestore** 
 * **Pub/Sub** 
 
@@ -19,7 +20,7 @@ GCP 用のエミュレータは公式のもの(https://cloud.google.com/sdk/gclo
 * `Docker`
 * [Cloud Client Libraries](https://cloud.google.com/apis/docs/client-libraries-explained) (for language you want to use)
 
-
+*Datastore*
 ## QuickStart
 
 本リポジトリを clone して以下のコマンドで docker コンテナを立ち上げます。
@@ -29,11 +30,11 @@ docker-compose up
 
 コンテナの立ち上げ後は以下のポートを通じて各エミュレータに接続することができます。
 
-|Emulator  | Default port          | Service Name |SERVICE    |
-|----------|-----------------------|--------------|-----------|
-|Datastore | http://localhost:5051 | datastore    | DATASTORE |
-|Firestore | http://localhost:5052 | firestore    | FIRESTORE |
-|Pub/Sub   | http://localhost:5053 | pubsub       | PUBSUB    |
+|Emulator         | Default port          | Service Name |SERVICE    |
+|-----------------|-----------------------|--------------|-----------|
+|Datastore        | http://localhost:5051 | datastore    | DATASTORE |
+|Firestore        | http://localhost:5052 | firestore    | FIRESTORE |
+|Pub/Sub          | http://localhost:5053 | pubsub       | PUBSUB    |
 
 
 環境変数で `<SERVICE>_EMULATOR_HOST` を指定することで gcloud の向き先をエミュレータにすることができます．
@@ -50,6 +51,23 @@ export PUBSUB_EMULATOR_HOST=localhost:5053
 - firestore : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/firestore
 - pubsub : https://cloud.google.com/sdk/gcloud/reference/beta/emulators/pubsub 
 
+### [Google Cloud GUI](https://github.com/GabiAxel/google-cloud-gui)
+Google Cloud GUIは Datastore エミュレータの中身をGUIで確認できるオープンソースのツールです。
+
+デフォルトではブラウザ上で http://localhost:5054 にアクセスすることで、
+このようなページが開かれます。
+
+![](images/home.png)
+
+左上の「＋Projects」をクリックし、プロジェクト名とDatastoreのホストを入力します。
+
+![](images/input-project-id.png)
+
+Datastoreエミュレータに保存されている内容を確認することができます。
+
+![](images/gui.png)
+
+![](images/entity.png)
 
 ## Configurations
 
@@ -57,7 +75,9 @@ export PUBSUB_EMULATOR_HOST=localhost:5053
 
 * `SERVICES`: カンマ区切りでサービス名を指定することで，起動するエミュレータを指定できる．\
 指定しなかった場合全てのエミュレータが起動される．
-  > 例: `SERVICES="datastore,pubsub"` -> datastore, pubsub が起動し，firestore は起動しない
+  > 例1: `SERVICES="datastore,pubsub"` -> datastore, pubsub が起動し，firestore, google-cloud-gui は起動しない 
+
+  (google-cloud-guiはdatastoreとgoogle-cloud-guiの両方を指定したときのみ起動する)
 * `<SERVICE>_PORT`: 各エミュレータを起動する際に割り当てるポート番号を指定できる．\
 指定しなかった場合，default port が割り当てられる．
 * `<SERVICE>_DIR`:  各エミュレータのローカルデータをマウントするディレクトリを指定できる．\
