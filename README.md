@@ -57,7 +57,7 @@ more information
 ### [Google Cloud GUI](https://github.com/GabiAxel/google-cloud-gui)
 Google Cloud GUI is a GUI for Google Cloud Datastore.
 
-This can available at http://localhost:5054 (default).
+This can be available at http://localhost:5054 (default).
 
 ![](images/home.png)
 
